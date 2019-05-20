@@ -1,0 +1,20 @@
+ 
+ <div class="col-md-4" >
+
+  <br>
+
+<form #formLogin="ngForm" (ngSubmit)="traerPordesc()" id="form-login" class="form-inline my-2 my-lg-0">
+    <input type="text" id="nombre" name="nombre: " #descripcion="ngModel" [(ngModel)]="pelicula.nombre"  class="form-control" required autofocus>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+  </form>
+
+ </div>
+ 
+ 
+ 
+
+
+  <app-detalle [pelicula]="pelicula"></app-detalle>
+
+
+

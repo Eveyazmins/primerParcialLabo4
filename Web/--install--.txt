@@ -1,0 +1,17 @@
+		$ npm install bootstrap
+	    $ npm install font-awesome
+		
+		en el angular.json  =>
+		
+ “styles”: [
+ “node_modules/bootstrap/dist/css/bootstrap.css”,
+ “node_modules/font-awesome/css/font-awesome.css”,
+ “src/styles.css”
+ ],
+ 
+ 
+ para probar =>
+ 
+     Made with <i class=”fa fa-heart”></i> with bootstrap and font-awesome
+ 
+ 
