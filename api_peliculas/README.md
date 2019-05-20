@@ -1,2 +1,0 @@
-# api_productos
-labo_IV_api_practica_1erParcial
