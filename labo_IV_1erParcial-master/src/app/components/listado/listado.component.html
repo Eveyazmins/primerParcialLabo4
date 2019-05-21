@@ -1,0 +1,55 @@
+<!--
+<br>
+<div class="col-md-12">
+<app-buscador (encontroArt)="mostarProd($event)"></app-buscador>
+</div> 
+-->
+
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <!-- NgFor recorre cada pelicula existente en el listado. 
+      Se va a crear una caja con datos por pelicula existente -->
+      <div class="col-md-4" *ngFor="let pelicula of listado">
+        <div class="card mb-4 shadow-sm">
+          <img src=" {{ pelicula.foto }}" class="responsive" alt="" srcset="" />
+          <div class="card-body">
+            <table class="table-responsive table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>nombre</th>
+                  <th>tipo</th>
+                  <th>fecha Estreno</th>
+                  <th>cantidad Publico</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ pelicula.id }}</td>
+                  <td>{{ pelicula.nombre }}</td>
+                  <td>{{ pelicula.tipo }}</td>
+                  <td>{{ pelicula.fecha_estreno }}</td>
+                  <td>{{ pelicula.cant_publico }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr>
+
+            <div class="d-flex justify-content-between align-items-center">
+
+              <!-- Boton borrar, toma el ID de la Pelicula y la borra. Luego carga listado nuevamente -->
+              <div class="btn-group">
+                <app-boton-borrar (cargalista)="cargarLista()" [productoBorrar]="pelicula"></app-boton-borrar>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,8 @@
+
+
+
+roller  260  ancho total
+
+ancho : ( 1.75 + 0.85)
+
+largo:  1.20 min
