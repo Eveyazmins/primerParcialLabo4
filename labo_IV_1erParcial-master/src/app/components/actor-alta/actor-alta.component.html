@@ -1,2 +1,60 @@
-<h6>ACTOR ALTA</h6>
+<br>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">Alta Actor</h4>
+            <hr class="mb-4">
+            
+            <form #formProducto="ngForm" (ngSubmit)="onSubmit(formProducto)">
+                
+                <div class="row">
+                    <div class="col-sm-8 mb-8">
+                        <div class="row">
+                            
+                            <div class="col-sm-7 mb-7">
+                                <label for="lastName">nombre</label>
+                                <input type="text" [(ngModel)]="actor.nombre" #nombre="ngModel" class="form-control" id="nombre" required name="nombre">
+                            </div>
+              
+                            <div class="col-sm-3 mb-3">
+                                <label for="lastName">apellido</label>
+                                <input type="text" [(ngModel)]="actor.apellido" #apellido="ngModel" class="form-control" id="apellido" required name="apellido">
+                            </div>
+
+                            <div class="col-sm-3 mb-3">
+                                <label for="lastName">nacionalidad</label>
+                                <input type="text" [(ngModel)]="actor.nacionalidad" #nacionalidad="ngModel" class="form-control" id="nacionalidad" required name="nacionalidad">
+                            </div>
+                        
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-4 mb-4">
+                                <label for="firstName">fecha de Nacimiento</label>
+                                <input type="date" [(ngModel)]="actor.fecha_nacimiento" #fecha_nacimiento="ngModel" class="form-control" id="fecha_nacimiento" required name="fecha_nacimiento">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar actor</button>
+                <br>
+                <hr class="mb-4">
+
+             </form>
+
+        </div>
+    </div>
+</div>
+
+<div *ngIf="enviado">
+  <p>Formulario Enviado con éxito!</p>
+</div>
+<div *ngIf="invalido">
+  <p>Formulario Inválido!</p>
+</div>

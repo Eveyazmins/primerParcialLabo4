@@ -17,7 +17,10 @@ export class HttpRouteBaseService {
     */
     //this.urlBase = 'http://localhost/api_parcial/index.php';
     //this.urlBase = 'http://localhost:8080/laboparcial_19/server/index.php';
-    this.urlBase = 'http://localhost:8080/api_peliculas/index.php';
+    //this.urlBase = 'http://localhost:8080/api_peliculas/index.php'; --> uso este para casa
+
+    //uso este para note trabajo
+    this.urlBase = 'http://localhost:80/api_peliculas/index.php';
   }
 
   private createHeaders() {

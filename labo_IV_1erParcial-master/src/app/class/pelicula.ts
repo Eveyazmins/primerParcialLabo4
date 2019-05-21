@@ -5,6 +5,7 @@ export class Pelicula {
     public tipo: string;
     public fecha_estreno: string;
     public cant_publico: number;
+    public actor_principal: string;
     //public foto: string;
 
     /*

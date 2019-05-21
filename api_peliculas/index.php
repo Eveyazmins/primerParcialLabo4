@@ -5,6 +5,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require './composer/vendor/autoload.php';
 require './AccesoDatos.php';
 require './peliculas/peliculaApi.php';
+require './peliculas/actorApi.php';
 
 $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
@@ -37,6 +38,20 @@ $app->group('/peliculas', function () {
 
   $this->put('/', \cdApi::class . ':ModificarUno');
   */
+     
+});
+
+$app->group('/actores', function () {
+ 
+  $this->get('/', \actorApi::class . ':getAll');
+
+  $this->delete('/{id}[/]', \actorApi::class . ':delete');
+
+  $this->get('/{id}', \actorApi::class . ':getOne');
+
+  $this->get('/nombre/{nombre}', \actorApi::class . ':getOneName');
+  
+  $this->post('/alta[/]', \actorApi::class . ':CargarUno');
      
 });
 

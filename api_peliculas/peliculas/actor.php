@@ -1,21 +1,20 @@
 <?php
-class Pelicula{
+class Actor{
 	
 	public $id;
     public $nombre;
-    public $tipo;
-    public $fecha_estreno;
-    public $cant_publico;
-    public $foto;
-	public $actor_principal;
+    public $apellido;
+	public $nacionalidad;
+    public $fecha_nacimiento;
+
 
 	public static function TraerTodos(){
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("
-			SELECT * FROM `peliculas` WHERE 1
+			SELECT * FROM `actores` WHERE 1
 			");
 			$consulta->execute();			
-			return $consulta->fetchAll(PDO::FETCH_CLASS, "pelicula");		
+			return $consulta->fetchAll(PDO::FETCH_CLASS, "actor");		
 	}
 
 	public function Borrar($id){
@@ -23,7 +22,7 @@ class Pelicula{
             $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
 
             $consulta = $objetoAccesoDato->RetornarConsulta("
-			DELETE FROM `peliculas` WHERE `id` = $id
+			DELETE FROM `actores` WHERE `id` = $id
 			");
 
             $consulta->bindValue(':id', $id, PDO::PARAM_STR);
@@ -43,28 +42,28 @@ class Pelicula{
 	public static function TraerUno($id) {
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
-		SELECT * FROM `peliculas` WHERE `id` = $id
+		SELECT * FROM `actores` WHERE `id` = $id
 		");
 		$consulta->execute();
-		$pelicula = $consulta->fetchObject('pelicula');
-		return $pelicula;
+		$actor = $consulta->fetchObject('actor');
+		return $actor;
 	}
 
 
 	public static function TraerUnoPorNombre($nombre) {
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
-		SELECT * FROM `peliculas` WHERE `nombre` = '$nombre'
+		SELECT * FROM `actores` WHERE `nombre` = '$nombre'
 		");
 		$consulta->execute();
-		$pelicula = $consulta->fetchObject('pelicula');
-		return $pelicula;
+		$actor = $consulta->fetchObject('actor');
+		return $actor;
 	}
 	
 	    public static function TraerNombre($auxNombre) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select nombre from peliculas where nombre = '$auxNombre'");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select nombre from actores where nombre = '$auxNombre'");
 			$consulta->execute();
             $consulta->setFetchMode(PDO::FETCH_ASSOC);
             if($consulta->rowCount() == 0){
@@ -73,16 +72,14 @@ class Pelicula{
             return $consulta->fetchAll();	
     }
 	
-	    public function InsertarPeliculaParametros()
+	    public function InsertarActorParametros()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
-            $consulta =$objetoAccesoDato->RetornarConsulta("INSERT into peliculas (nombre,tipo,fecha_estreno,cant_publico,actor_principal,foto)values(:nombre,:tipo,:fecha_estreno,:cant_publico,:actor_principal,:foto)");
+            $consulta =$objetoAccesoDato->RetornarConsulta("INSERT into actores (nombre,apellido,nacionalidad,fecha_nacimiento)values(:nombre,:apellido,:nacionalidad,:fecha_nacimiento)");
             $consulta->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
-            $consulta->bindValue(':tipo', $this->tipo, PDO::PARAM_STR);
-            $consulta->bindValue(':fecha_estreno',$this->fecha_estreno, PDO::PARAM_STR);
-            $consulta->bindValue(':cant_publico', $this->cant_publico, PDO::PARAM_INT);
-			$consulta->bindValue(':actor_principal', $this->actor_principal, PDO::PARAM_STR);
-			$consulta->bindValue(':foto', $this->foto, PDO::PARAM_STR);
+            $consulta->bindValue(':apellido', $this->apellido, PDO::PARAM_STR);
+            $consulta->bindValue(':nacionalidad',$this->nacionalidad, PDO::PARAM_STR);
+            $consulta->bindValue(':fecha_nacimiento', $this->fecha_nacimiento, PDO::PARAM_STR);
             //$consulta->bindValue(':foto', $this->foto, PDO::PARAM_STR);
             $consulta->execute();	
             return $objetoAccesoDato->RetornarUltimoIdInsertado();

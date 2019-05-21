@@ -1,18 +1,17 @@
 <br>
 
-
 <div class="container">
   <div class="row">
     <div class="col-md-12 order-md-1">
       <h4 class="mb-3">Alta Pelicula</h4>
-
-
       <hr class="mb-4">
-
+      
       <form #formProducto="ngForm" (ngSubmit)="onSubmit(formProducto)">
-
+        
         <div class="row">
+
           <div class="col-sm-8 mb-8">
+            
             <div class="row">
               
               <!--
@@ -28,31 +27,47 @@
               </div>
               
               <div class="col-sm-3 mb-3">
-                  <label for="lastName">tipo</label>
-                  <input type="text" [(ngModel)]="pelicula.tipo" #tipo="ngModel" class="form-control" id="tipo" required name="tipo">
-                </div>
+                <label for="lastName">tipo</label>
+                <input type="text" [(ngModel)]="pelicula.tipo" #tipo="ngModel" class="form-control" id="tipo" required name="tipo">
+              </div>
+
             </div>
 
             <div class="row">
+
               <div class="col-sm-4 mb-4">
                 <label for="firstName">fechaDeEstreno</label>
                 <input type="date" [(ngModel)]="pelicula.fecha_estreno" #fecha_estreno="ngModel" class="form-control" id="fecha_estreno" required name="fecha_estreno">
               </div>
+
               <div class="col-sm-8 mb-8">
                 <label for="lastName">cantidadPublico</label>
                 <input type="text" [(ngModel)]="pelicula.cant_publico" #cant_publico="ngModel" class="form-control" id="cant_publico" required name="cant_publico">
               </div>
+
+              <div class="col-sm-8 mb-8">
+                  <label for="lastName">EstrellaPrincipal</label>
+                  <input type="text" [(ngModel)]="pelicula.actor_principal" #actor_principal="ngModel" class="form-control" id="actor_principal" required name="actor_principal">
+              </div>
+              <!--
+              <div class="col-sm-4 mb-4">
+                  <img src=" {{ pelicula.rutaDeFoto}}" alt="" srcset="">
+                </div>
+                -->
+
             </div>
 
+
+
           </div>
 
-          <div class="col-sm-4 mb-4">
-            <img src=" {{ pelicula.rutaDeFoto}}" alt="" srcset="">
           </div>
+          <br>
 
           <button type="submit" class="btn btn-primary">Guardar Película</button>
           <br>
-        </div>
+
+        
 
         <hr class="mb-4">
 
