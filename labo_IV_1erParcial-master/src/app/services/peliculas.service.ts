@@ -26,8 +26,19 @@ export class PeliculasService {
     return this.miHttp.httpDeleteP('/peliculas/' + id);
   } 
   
+  /*
   public TraerPorDescrip(descripcion: string): Observable<Pelicula> {
     return this.miHttp.httpGetO<Pelicula>('/peliculas/descripcion/' + '"' + descripcion + '"');
+  }¨
+  */
+
+
+  /*
+  Este método consume el el metodo httpGetO enviando la url del servidor + el nombre de la pelicula
+  recibido como parametro.
+  */
+  public TraerPorNombre(nombre: string): Observable<Pelicula> {
+    return this.miHttp.httpGetO<Pelicula>('/peliculas/nombre/' + nombre);
   }
 
   /*

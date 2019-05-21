@@ -42,7 +42,7 @@ class Pelicula{
 	public static function TraerUno($id) {
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
-		SELECT * FROM `peliculas` WHERE `idProducto` = $id
+		SELECT * FROM `peliculas` WHERE `id` = $id
 		");
 		$consulta->execute();
 		$pelicula = $consulta->fetchObject('pelicula');
@@ -53,7 +53,7 @@ class Pelicula{
 	public static function TraerUnoPorNombre($nombre) {
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
-		SELECT * FROM `peliculas` WHERE `nombre` = $nombre
+		SELECT * FROM `peliculas` WHERE `nombre` = '$nombre'
 		");
 		$consulta->execute();
 		$pelicula = $consulta->fetchObject('pelicula');

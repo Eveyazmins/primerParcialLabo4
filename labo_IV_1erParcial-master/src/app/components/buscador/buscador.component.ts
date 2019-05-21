@@ -9,8 +9,11 @@ import { PeliculasService } from '../../services/peliculas.service';
 })
 export class BuscadorComponent implements OnInit {
 
-
-  @Output() encontroArt = new EventEmitter();
+/*
+Si encuentra la pelicula, el metodo Output (evento emit) envia un objeto de tipo Pelicula con los datos 
+de la misma recuperados del servidor. Los recibe el componente Detalle para completar el form.
+*/
+  @Output() encontroPeli = new EventEmitter();
   public pelicula: Pelicula;
   public peliNull: Pelicula;
 
@@ -20,15 +23,18 @@ export class BuscadorComponent implements OnInit {
    }
 
 
-
-
-
-public traerPordesc() {
+/*
+El metodo traerPorNombre invoca al metodo TraerPorNombre del servicio de peliculas enviando el nombre
+de la pelicula recuperado del form con NgModel.
+Si el servicio retorna un response OK (objeto Pelicula encontrado), va a asignar el objeto recuperado
+a mi objeto pelicula y lanza el evento emit. 
+*/
+public traerPorNombre() {
   console.log( '=>', this.pelicula.nombre);
-  this.serv.TraerPorDescrip(this.pelicula.nombre).subscribe(response => {
+  this.serv.TraerPorNombre(this.pelicula.nombre).subscribe(response => {
     if(response.nombre){
       this.pelicula = response;
-      this.encontroArt.emit({prod: this.pelicula});
+      this.encontroPeli.emit({prod: this.pelicula});
     } else {
       this.pelicula = this.peliNull;
     }
