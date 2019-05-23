@@ -11,27 +11,29 @@
       <div class="row">
         <!-- NgFor recorre cada pelicula existente en el listado. 
         Se va a crear una caja con datos por pelicula existente -->
-        <div class="col-md-4" *ngFor="let actor of listado">
+        <div class="col-md-4" *ngFor="let pelicula of listado">
           <div class="card mb-4 shadow-sm">
-            <!--<img src=" {{ actor.foto }}" class="responsive" alt="" srcset="" />-->
+            <img src="http://localhost:8080/api_peliculas{{ pelicula.foto }}" class="responsive" alt="" srcset="" />
             <div class="card-body">
               <table class="table-responsive table-bordered">
                 <thead>
                   <tr>
                     <th>ID</th>
                     <th>nombre</th>
-                    <th>apellido</th>
-                    <th>nacionalidad</th>
-                    <th>fecha de nacimiento</th>
+                    <th>tipo</th>
+                    <th>fecha Estreno</th>
+                    <th>cantidad Publico</th>
+                    <th>estrella</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{ actor.id }}</td>
-                    <td>{{ actor.nombre }}</td>
-                    <td>{{ actor.apellido }}</td>
-                    <td>{{ actor.nacionalidad }}</td>
-                    <td>{{ actor.fecha_nacimiento }}</td>
+                    <td>{{ pelicula.id }}</td>
+                    <td>{{ pelicula.nombre }}</td>
+                    <td>{{ pelicula.tipo }}</td>
+                    <td>{{ pelicula.fecha_estreno }}</td>
+                    <td>{{ pelicula.cant_publico }}</td>
+                    <td>{{ pelicula.actor_principal }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -40,17 +42,9 @@
   
               <div class="d-flex justify-content-between align-items-center">
   
-              <!-- Boton borrar, toma el ID de la Pelicula y la borra. Luego carga listado nuevamente -->
-              <div class="btn-group">
-                  <app-boton-actorpelicula [actorPelicula]="actor"></app-boton-actorpelicula>
-              </div>
-
-                
+           
               
               </div>
-
-  
-
             </div>
           </div>
         </div>

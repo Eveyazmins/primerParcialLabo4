@@ -26,6 +26,8 @@ $app->group('/peliculas', function () {
 
   $this->get('/nombre/{nombre}', \peliculaApi::class . ':getOneName');
   
+  $this->get('/actor/{actor_principal}', \peliculaApi::class . ':getAllActor');
+  
   $this->post('/alta[/]', \peliculaApi::class . ':CargarUno');
 
   /*

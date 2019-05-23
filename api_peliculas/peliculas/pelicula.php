@@ -61,6 +61,16 @@ class Pelicula{
 		return $pelicula;
 	}
 	
+		public static function TraerTodosPorActor($actor){
+			
+			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta("
+			SELECT * FROM `peliculas` WHERE `actor_principal` = '$actor' 
+			");
+			$consulta->execute();			
+			return $consulta->fetchAll(PDO::FETCH_CLASS, "pelicula");		
+	}
+	
 	    public static function TraerNombre($auxNombre) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 

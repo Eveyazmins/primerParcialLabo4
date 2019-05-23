@@ -22,6 +22,17 @@ export class PeliculasService {
       });
   }
 
+  public listarPorActor(actor: string): Promise<Array<any>> {
+    return this.miHttp.httpGetP('/peliculas/actor/' + actor)
+      .then(data => {
+        return data;
+      })
+      .catch(err => {
+        console.log( 'error de listar ===> ', err);
+        return null;
+      });
+  }
+
   public Eliminar(id: number): Promise<object> {
     return this.miHttp.httpDeleteP('/peliculas/' + id);
   } 

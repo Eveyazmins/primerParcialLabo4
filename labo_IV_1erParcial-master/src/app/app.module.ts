@@ -25,6 +25,9 @@ import { DetalleComponent } from './components/detalle/detalle.component';
 import { ActorBoardComponent } from './components/actor-board/actor-board.component';
 import { ActorAltaComponent } from './components/actor-alta/actor-alta.component';
 import { ActorListadoComponent } from './components/actor-listado/actor-listado.component';
+import { BotonActorpeliculaComponent } from './components/boton-actorpelicula/boton-actorpelicula.component';
+import { ListadopeliculaporactorComponent } from './components/listadopeliculaporactor/listadopeliculaporactor.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,11 @@ import { ActorListadoComponent } from './components/actor-listado/actor-listado.
     DetalleComponent,
     ActorBoardComponent,
     ActorAltaComponent,
-    ActorListadoComponent
+    ActorListadoComponent,
+    BotonActorpeliculaComponent,
+    ListadopeliculaporactorComponent,
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,

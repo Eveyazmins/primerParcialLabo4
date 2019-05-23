@@ -33,6 +33,15 @@ public function getOneName($request, $response, $args) {
 	 return $newResponse;
 }
 
+//TraerTodosPorActor($actor){
+
+	public function getAllActor($request, $response, $args) {
+		$actor_principal=$args['actor_principal'];
+		$todos=pelicula::TraerTodosPorActor($actor_principal);
+		$newResponse = $response->withJson($todos, 200);  
+	return $newResponse;
+}
+
 
     public function CargarUno($request, $response, $args)
     {
@@ -96,9 +105,10 @@ public function getOneName($request, $response, $args) {
 		
 		$archivos = $request->getUploadedFiles();
         $destino= "./fotosPelicula/";
+		$default = "./fotoDefault/defecto.png";
 		var_dump($archivos);
        
-        if(isset($archivos['foto']))
+        if($archivos != NULL)
         {
 			$nombreAnterior=$archivos['foto']->getClientFilename();
             $extension= explode(".", $nombreAnterior)  ;
@@ -109,7 +119,7 @@ public function getOneName($request, $response, $args) {
         } 
         else
         {
-			$peliAux->foto = "sin foto";
+			$peliAux->foto = $default;
         }
 		
 

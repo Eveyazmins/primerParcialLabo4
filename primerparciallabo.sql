@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2019 a las 22:16:47
--- Versión del servidor: 10.1.36-MariaDB
--- Versión de PHP: 7.2.10
+-- Host: 127.0.0.1
+-- Generation Time: May 23, 2019 at 10:28 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `primerparciallabo`
+-- Database: `primerparciallabo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `actores`
+-- Table structure for table `actores`
 --
 
 CREATE TABLE `actores` (
@@ -37,7 +37,7 @@ CREATE TABLE `actores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `actores`
+-- Dumping data for table `actores`
 --
 
 INSERT INTO `actores` (`id`, `nombre`, `apellido`, `nacionalidad`, `fecha_nacimiento`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `actores` (`id`, `nombre`, `apellido`, `nacionalidad`, `fecha_nacimi
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estrellas`
+-- Table structure for table `estrellas`
 --
 
 CREATE TABLE `estrellas` (
@@ -59,7 +59,7 @@ CREATE TABLE `estrellas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `estrellas`
+-- Dumping data for table `estrellas`
 --
 
 INSERT INTO `estrellas` (`id`, `nombre`, `apellido`, `nacionalidad`, `fecha_nacimiento`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `estrellas` (`id`, `nombre`, `apellido`, `nacionalidad`, `fecha_naci
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `peliculas`
+-- Table structure for table `peliculas`
 --
 
 CREATE TABLE `peliculas` (
@@ -82,65 +82,61 @@ CREATE TABLE `peliculas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `peliculas`
+-- Dumping data for table `peliculas`
 --
 
 INSERT INTO `peliculas` (`id`, `nombre`, `tipo`, `fecha_estreno`, `cant_publico`, `foto`, `actor_principal`) VALUES
-(1, 'titanic', 'amor', '10-10-1980', 100, NULL, NULL),
-(2, 'A star is born', 'amor', '10-01-2019', 200, NULL, NULL),
-(4, 'prueba3', 'otros', '2019-01-01', 200, NULL, NULL),
-(5, 'pelicula5', 'otros', '2019-01-31', 300, NULL, NULL),
-(6, 'pelconestuno', 'amor', '10-10-1990', 200, NULL, 'actuno'),
-(7, 'peliconestdos', 'amor', '2019-01-01', 1000, NULL, 'estdos'),
-(8, 'pelconesttres', 'amor', '10-10-1990', 200, 'sin foto', 'acttres'),
-(9, 'peliculaunoim', 'amor', '10-10-1990', 2000, 'sin foto', 'actcuatro'),
-(10, 'peliculaunoim2', 'amor', '10-10-1990', 2000, 'sin foto', 'actcuatro'),
-(11, 'peliculaunoim26', 'amor', '10-10-1990', 2000, 'sin foto', 'actcuatro'),
-(12, 'peliculaunoim29', 'amor', '10-10-1990', 2000, 'sin foto', 'actcuatro');
+(13, 'peliculafoto', 'amor', '10-01-1990', 1000, '/fotosPelicula/peliculafoto.png', 'actormil'),
+(14, 'peliculafoto2', 'amor', '10-01-1990', 1000, '/fotosPelicula/peliculafoto2.png', 'actormil'),
+(15, 'peliculasinfoto', 'amor', '10-01-1990', 1000, '/fotoDefault/defecto.png', 'actormiluno'),
+(16, 'peliculasinfoto2', 'amor', '10-01-1990', 1000, '/fotosPelicula/peliculasinfoto2.png', 'actormiluno'),
+(17, 'peliculasinfoto3', 'amor', '10-01-1990', 1000, './fotoDefault/defecto.png', 'actormiluno'),
+(18, 'peliprobar', 'otros', '2019-01-01', 10000, './fotoDefault/defecto.png', 'actuno'),
+(19, 'peliprobar2', 'otros', '2019-01-01', 233, './fotoDefault/defecto.png', 'actuno');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `actores`
+-- Indexes for table `actores`
 --
 ALTER TABLE `actores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `estrellas`
+-- Indexes for table `estrellas`
 --
 ALTER TABLE `estrellas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `peliculas`
+-- Indexes for table `peliculas`
 --
 ALTER TABLE `peliculas`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `actores`
+-- AUTO_INCREMENT for table `actores`
 --
 ALTER TABLE `actores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `estrellas`
+-- AUTO_INCREMENT for table `estrellas`
 --
 ALTER TABLE `estrellas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `peliculas`
+-- AUTO_INCREMENT for table `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

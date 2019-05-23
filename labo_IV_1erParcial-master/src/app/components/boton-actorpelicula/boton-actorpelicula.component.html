@@ -1,0 +1,17 @@
+
+<!--
+<button type="button" class="btn btn-sm btn-outline-danger"  (click)= "listarPeliculaPorActor()">
+    Ver Peliculas
+</button>
+
+-->
+
+  <!-- El boton Search es de tipo Submit llama a la funcion traerPorNombre enviando como parametro el 
+  nombre de la pelicula-->
+  <form #formLogin="ngForm" (ngSubmit)="listarPeliculaPorActor()" id="form-login" class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Ver Peliculas</button>
+
+  </form>
+
+  <app-listadopeliculaporactor [listado]="listado"></app-listadopeliculaporactor>
+  
